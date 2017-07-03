@@ -1,0 +1,105 @@
+﻿@model Garage_2.Models.Vehicle
+
+@{
+    ViewBag.Title = "Receipt";
+}
+
+<h2>Receipt</h2>
+
+<div>
+    <h4>Vehicle</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.Type)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Type)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.RegistrationNumber)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.RegistrationNumber)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Color)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Color)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Brand)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Brand)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Model)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Model)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Wheels)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Wheels)
+        </dd>
+
+        <dt>
+            Parking Space(s)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.ParkingSpace1) - @Html.DisplayFor(model => model.ParkingSpace2) - @Html.DisplayFor(model => model.ParkingSpace3)
+        </dd>
+
+        <dt>
+            Check-In Time
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Date)
+        </dd>
+
+        <dt>
+            Check-Out Time
+        </dt>
+
+        <dd>
+            @DateTime.Now
+        </dd>
+
+        <dt>
+            Total Parking Time
+        </dt>
+
+        <dd>
+            @((DateTime.Now  - Model.Date).Hours) h @((DateTime.Now - Model.Date).Minutes) m
+        </dd>
+
+        <dt>
+            Total
+        </dt>
+
+        <dd>
+            @( ((DateTime.Now - Model.Date).Hours * 60) + ((DateTime.Now - Model.Date).Minutes * 1) ) SEK
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Back to Garage", "Index")
+</p>

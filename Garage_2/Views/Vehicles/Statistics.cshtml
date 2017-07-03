@@ -1,0 +1,74 @@
+﻿@model IEnumerable<Garage_2.Models.Vehicle>
+
+@{
+    ViewBag.Title = "Garage Statistics";
+}
+
+<h2>Garage Statistics</h2>
+
+<div>
+    <dl class="dl-horizontal">
+        <dt>
+            Airplanes
+        </dt>
+
+        <dd>
+            @Garage_2.Models.Vehicle.VehicleTypeCountInList(Model, Garage_2.Models.Type.Airplane)
+        </dd>
+
+        <dt>
+            Boats
+        </dt>
+
+        <dd>
+            @Garage_2.Models.Vehicle.VehicleTypeCountInList(Model, Garage_2.Models.Type.Boat)
+        </dd>
+
+        <dt>
+            Buses
+        </dt>
+
+        <dd>
+            @Garage_2.Models.Vehicle.VehicleTypeCountInList(Model, Garage_2.Models.Type.Bus)
+        </dd>
+
+        <dt>
+            Cars
+        </dt>
+
+        <dd>
+            @Garage_2.Models.Vehicle.VehicleTypeCountInList(Model, Garage_2.Models.Type.Car)
+        </dd>
+
+        <dt>
+            Motorcycles
+        </dt>
+
+        <dd>
+            @Garage_2.Models.Vehicle.VehicleTypeCountInList(Model, Garage_2.Models.Type.Motorcycle)
+        </dd>
+
+        <dt>
+            Total # Wheels
+        </dt>
+
+        <dd>
+            @Garage_2.Models.Vehicle.VehicleTotalWheelsInListCount(Model) wheels
+        </dd>
+
+        <dt>
+            Collective Parking Fee
+        </dt>
+
+        <dd>
+            @Garage_2.Models.Vehicle.TotalFeeFromVehicleList(Model) SEK
+        </dd>
+
+    </dl>
+</div>
+
+<div>
+    <p>@Garage_2.Controllers.VehiclesController.GetParkingLotOutput(1)</p>
+    <p>@Garage_2.Controllers.VehiclesController.GetParkingLotOutput(2)</p>
+    <p>@Garage_2.Controllers.VehiclesController.GetParkingLotOutput(3)</p>
+</div>

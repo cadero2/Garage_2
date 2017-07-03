@@ -1,0 +1,10 @@
+﻿@{
+    ViewBag.Title = "Home Page";
+}
+
+<div class="jumbotron">
+    <h1>Garage 2.0</h1>
+    <p class="lead">Garage 2.0 is a free web application for managing your garage property smoothly and effectively. This web application was built using ASP.NET MVC.</p>
+    <p class="lead">There are @(30-(new Garage_2.Controllers.VehiclesController().GetVehicleCountV2())) of 30 parking spaces left.</p>
+    <p><a href="@Url.Action(null, "Vehicles", null)" class="btn btn-primary btn-lg">To Vehicles &raquo;</a></p>
+</div>

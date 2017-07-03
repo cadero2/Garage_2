@@ -1,0 +1,86 @@
+﻿@model IEnumerable<Garage_2.Models.Vehicle>
+
+@{
+    ViewBag.Title = "Garage List";
+}
+
+<h2>Garage Index</h2>
+
+<p>
+    @Html.ActionLink("Check In Vehicle", "Create") | @Html.ActionLink("Statistics", "Statistics")
+</p>
+
+@using (Html.BeginForm("Search", "Vehicles", FormMethod.Post))
+{
+    <form>
+        <div>
+            Search:&nbsp;
+            <input type="text" id="searchId" name="searchId">
+
+            <input type="submit" id="submitId" value="Search" />
+            <br />
+        </div>
+    </form>
+}
+
+@{
+    if (ViewBag.SearchKey != null)
+    {
+        <span>
+            Search Key: @ViewBag.SearchKey
+        </span>
+    }
+}
+
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.ID) (@Html.ActionLink("Sort", "Index", new { sortingParameter = "ID" }))
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Type) (@Html.ActionLink("Sort", "Index", new { sortingParameter = "Type" } ))
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.RegistrationNumber) (@Html.ActionLink("Sort", "Index", new { sortingParameter = "RegistrationNumber" }))
+        </th>
+        <th>
+            Parking Space (@Html.ActionLink("Sort", "Index", new { sortingParameter = "ParkingSpace" }))
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Date) (@Html.ActionLink("Sort", "Index", new { sortingParameter = "Date" }))
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Color) (@Html.ActionLink("Sort", "Index", new { sortingParameter = "Color" }))
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.ID)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Type)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.RegistrationNumber)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.ParkingSpace1)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Date)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Color)
+        </td>
+        <td>
+            @Html.ActionLink("Edit Details", "Edit", new { id=item.ID }) |
+            @Html.ActionLink("Details", "Details", new { id=item.ID }) |
+            @Html.ActionLink("Check Out", "Delete", new { id=item.ID })
+        </td>
+    </tr>
+}
+
+</table>
